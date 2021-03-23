@@ -4,6 +4,7 @@ set -e
 
 # Download OpenCV Android SDK
 
+opencv_version="4.5.1-contrib"
 opencv_sdk_zip="cache/opencv-android-sdk.zip"
 
 if [[ $1 = "--skip-download" ]]; then
