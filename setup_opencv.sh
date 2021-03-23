@@ -4,14 +4,13 @@ set -e
 
 # Download OpenCV Android SDK
 
-opencv_version="4.5.1"
 opencv_sdk_zip="cache/opencv-android-sdk.zip"
 
 if [[ $1 = "--skip-download" ]]; then
     echo "Skipping Download of ${opencv_sdk_zip}..."
 else
     echo "Downloading ${opencv_sdk_zip}..."
-    download_url="https://github.com/opencv/opencv_contrib/archive/4.5.1/opencv-4.5.1-android-sdk.zip"
+    download_url="https://pullrequest.opencv.org/buildbot/export/opencv_releases/master-contrib_pack-contrib-android/20210321-095343--11325/OpenCV4Android.zip"
     echo "Download URL: ${download_url}"
     wget -c -O ${opencv_sdk_zip} ${download_url}
 fi
