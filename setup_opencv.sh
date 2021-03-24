@@ -4,23 +4,13 @@ set -e
 
 # Download OpenCV Android SDK
 
-opencv_version="4.5.1-contrib"
 opencv_sdk_zip="cache/opencv-android-sdk.zip"
 
-if [[ $1 = "--skip-download" ]]; then
-    echo "Skipping Download of ${opencv_sdk_zip}..."
-else
-    echo "Downloading ${opencv_sdk_zip}..."
-    download_url="https://pullrequest.opencv.org/buildbot/export/opencv_releases/master-contrib_pack-contrib-android/20210321-095343--11325/OpenCV4Android.zip"
-    echo "Download URL: ${download_url}"
-    wget -c -O ${opencv_sdk_zip} ${download_url}
-fi
 
-# Verify that file is present or downloaded
-if [[ ! -f ${opencv_sdk_zip} ]]; then
-    echo "${opencv_sdk_zip} not found... Either download failed or skipped..."
-    exit 1
-fi
+echo "Downloading ${opencv_sdk_zip}..."
+download_url="https://pullrequest.opencv.org/buildbot/export/opencv_releases/master-contrib_pack-contrib-android/20210321-095343--11325/OpenCV4Android.zip"
+echo "Download URL: ${download_url}"
+wget -c -O ${opencv_sdk_zip} ${download_url}
 
 echo "Unzipping OpenCV SDK..."
 unzip -qqo ${opencv_sdk_zip} -d opencv_sdk
